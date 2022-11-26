@@ -1,7 +1,7 @@
 import logging as log
 import os.path
 
-log_files = [".\Logs\central_server_logs.txt",".\Logs\collection_server_logs.txt",".\Logs\agent_logs.txt"]
+log_files = [".\Logs\central_server_logs.txt",".\Logs\collection_server_logs.txt",".\Logs\\agent_logs.txt"]
 
 def init(log_file_num):
 

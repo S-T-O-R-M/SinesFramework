@@ -4,16 +4,20 @@ import json
 import datetime 
 import os
 import requests
+import log_util as lu
+import sys
 
 LSERVER = "127.0.0.1"
 LPORT = 8081
 cIP = "127.0.0.1"
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((LSERVER,LPORT))
+lu.init(2)
 
 # Server Listening Handling
 def server_listen():
     print("Listening on", LSERVER, ":", LPORT)
+    lu.log.debug("Listening on "+str(LSERVER)+" "+str(LPORT))
     s.listen(100)
     conn,addr = s.accept()
 
@@ -21,6 +25,7 @@ def server_listen():
     collectionIP, collectionPort = addr
 
     if (msg == "COLLECT" and verify_collection(collectionIP)):
+        lu.log.debug("COLLECT Received. Starting Collection")
         start_collection()
 
 # Trigger Collection
@@ -29,6 +34,8 @@ def start_collection():
     native_environment = verify_OS()
     
     if (native_environment == "Linux"):
+
+        lu.log.debug("POSIX Environment Detected")
         #Start Linux Data Collection
         try:
             current_date_time = subprocess.run(["date"], capture_output=True).stdout.decode("utf-8")
@@ -56,7 +63,7 @@ def start_collection():
             ip_addr = socket.gethostbyname(hostname)
             os_type = "Linux"
 
-
+            lu.log.debug("Data Collection for "+str(ip_addr)+" "+"Completed")
             # Building Result Object
             forensic_data = {}
             
@@ -85,17 +92,21 @@ def start_collection():
                                 "Cron Jobs":cronjobs,
                                 }
 
-            
             json_data = json.dumps(forensic_data, indent=4)
-            
+            lu.log.debug("JSON Results Built")
+
+            lu.log.debug("Sending Results back to the Collection Server")
             send_results(json_data)
-        
+
+            lu.log("Data Collection and Exfiltration Complete for "+str(ip_addr))
         
         except(Exception):
             print("Something went wrong")
 
     elif native_environment == "Windows":
-    
+        
+        lu.log.debug("Windows Environment Detected")
+
         try:
             #Collecting Data for Windows
             system_information = subprocess.run(["systeminfo"], capture_output=True).stdout.decode("utf-8")
@@ -118,6 +129,9 @@ def start_collection():
             defender_status = subprocess.run(["powershell", "Get-MpComputerStatus"],capture_output=True).stdout.decode('utf-8')
             current_ip = socket.gethostbyname(hostname)
             
+            
+            lu.log.debug("Data Collection for "+str(current_ip)+" "+"Completed")
+
             #Building result object
             forensic_data = {}
 
@@ -145,14 +159,21 @@ def start_collection():
                         
             json_data = json.dumps(forensic_data, indent=4)
             
+            lu.log.debug("JSON Results Built")
+       
+            lu.log.debug("Sending Results back to the Collection Server")
+            
             send_results(json_data)
 
-        except(Exception):
-            print ("Something went wrong!")
+            lu.log.debug("Data Collection and Exfiltration Complete for "+str(current_ip))
+
+
+        except:
+            print("Oops!", sys.exc_info()[0], "occurred.")
 # OS Detection
 
 def send_results(forensic_results):
-    results_endpoint = "http://localhost/"
+    results_endpoint = "http://127.0.0.1:80/"
     response = requests.post(results_endpoint, json = forensic_results)
 
     print(response)
