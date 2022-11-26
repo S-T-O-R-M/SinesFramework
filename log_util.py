@@ -9,10 +9,10 @@ def init(log_file_num):
 
     if os.path.exists(filename):
         print("Log file exists")
-        log.basicConfig(filename=".\Logs\central_server_logs.txt", level = log.DEBUG)
+        log.basicConfig(filename = log_files[log_file_num], level = log.DEBUG)
     else:
         print("Creating log file")  
         f = open(filename, "w")
         f.close()
         log.debug("Log file created")
-        log.basicConfig(filename=".\Logs\central_server_logs.txt", level = log.DEBUG)
+        log.basicConfig(filename = log_files[log_file_num], level = log.DEBUG)
