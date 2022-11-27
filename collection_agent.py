@@ -21,7 +21,10 @@ def server_listen():
     s.listen(100)
     conn,addr = s.accept()
 
+    print("Connection Received From:", addr)
+
     msg = conn.recv(1024).decode("utf-8").strip()
+    print(msg)
     collectionIP, collectionPort = addr
 
     if (msg == "COLLECT" and verify_collection(collectionIP)):
@@ -167,7 +170,9 @@ def start_collection():
 
             lu.log.debug("Data Collection and Exfiltration Complete for "+str(current_ip))
 
-
+            
+            with open("results.txt", 'w') as f:
+                f.write(json_data)
         except:
             print("Oops!", sys.exc_info()[0], "occurred.")
 # OS Detection

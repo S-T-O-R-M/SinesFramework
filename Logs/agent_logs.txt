@@ -1,0 +1,85 @@
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "POST / HTTP/1.1" 302 0
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "GET /dashboard/ HTTP/1.1" 200 5187
+DEBUG:root:Data Collection and Exfiltration Complete for 10.181.90.117
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "POST / HTTP/1.1" 302 0
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "GET /dashboard/ HTTP/1.1" 200 5187
+DEBUG:root:Data Collection and Exfiltration Complete for 10.181.90.117
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "POST / HTTP/1.1" 302 0
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "GET /dashboard/ HTTP/1.1" 200 5187
+DEBUG:root:Data Collection and Exfiltration Complete for 10.181.90.117
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "POST / HTTP/1.1" 302 0
+DEBUG:urllib3.connectionpool:http://127.0.0.1:80 "GET /dashboard/ HTTP/1.1" 200 5187
+DEBUG:root:Data Collection and Exfiltration Complete for 10.181.90.117
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG:root:Listening on 127.0.0.1 8081
+DEBUG:root:COLLECT Received. Starting Collection
+DEBUG:root:Windows Environment Detected
+DEBUG:root:Data Collection for 10.181.90.117 Completed
+DEBUG:root:JSON Results Built
+DEBUG:root:Sending Results back to the Collection Server
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:80

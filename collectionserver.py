@@ -27,12 +27,9 @@ def send_collect_request(IP):
     print("Sending collect request")
     try:
         #print(filename_mapping[document_tag])
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect(("127.0.0.1",8081))
-        send_str = "COLLECT"
-        counter+=1
+        s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect(("127.0.0.1", 8081))
         s.send(b'COLLECT')
-        s.close()
     except:
         print("Unable to collect. Error sending request.")
         
@@ -50,6 +47,7 @@ async def root(request: Request):
     print(input_data)
     for x in input_data:
         send_collect_request(getFilenameMapping(x))
+    
 
 @app.post("/Collection/{ID}")
 async def root(request : Request, ID = str):
