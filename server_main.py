@@ -1,20 +1,18 @@
 from fastapi import FastAPI, Request, Response
 import time
 import log_util as lu
-import socket
 import json
+import requests
 
 DOC_TAGS = ['VPN','VPN1','PAYROLL']
 lu.init(0)
 
 def send_data(data_json):
-    s=socket.socket() 
-    conn = ("localhost",8020)
-    lu.log.debug("Sending data")
-    s.connect(conn)
-    s.sendall(data_json.encode())
-    s.close()
-    lu.log.debug("Data sent")
+    lu.log.debug("Sending data to collection Server")
+    coll_server = "http://127.0.0.1:8040/Document_Tag"
+    resp = requests.post(coll_server, json = data_json, headers={'Content-Type': 'application/json'})
+    lu.log.debug(resp)
+
 
 def form_dict_and_send(data_dict):
 

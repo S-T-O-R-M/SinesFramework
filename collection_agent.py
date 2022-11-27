@@ -10,6 +10,9 @@ import sys
 LSERVER = "127.0.0.1"
 LPORT = 8081
 cIP = "127.0.0.1"
+
+CENTRAL_SERVER = "127.0.0.1"
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((LSERVER,LPORT))
 lu.init(2)
@@ -26,7 +29,7 @@ def server_listen():
     msg = conn.recv(1024).decode("utf-8").strip()
     print(msg)
     collectionIP, collectionPort = addr
-
+    
     if (msg == "COLLECT" and verify_collection(collectionIP)):
         lu.log.debug("COLLECT Received. Starting Collection")
         start_collection()
@@ -178,7 +181,7 @@ def start_collection():
 # OS Detection
 
 def send_results(forensic_results):
-    results_endpoint = "http://127.0.0.1:80/"
+    results_endpoint = "http://"+CENTRAL_SERVER+":8040/Collection"
     response = requests.post(results_endpoint, json = forensic_results)
 
     print(response)
