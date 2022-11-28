@@ -5,11 +5,6 @@ from fastapi import FastAPI, Request, Response
 from pydantic import BaseModel
 import json
 
-
-filename_mapping = dict() 
-filename_mapping["VPN"] = "IP ADDRESS 1"
-filename_mapping["VPN1"] = "IP ADDRESS 2"
-
 collections = list()
 
 lu.init(1)

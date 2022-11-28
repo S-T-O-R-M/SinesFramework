@@ -4,12 +4,13 @@ import log_util as lu
 import json
 import requests
 
-DOC_TAGS = ['VPN','VPN1','PAYROLL']
+DOC_TAGS = ['VPN','PAYROLL']
 lu.init(0)
+COLL_SERVER = "192.168.182.130"
 
 def send_data(data_json):
     lu.log.debug("Sending data to collection Server")
-    coll_server = "http://127.0.0.1:8040/Document_Tag"
+    coll_server = "http://"+COLL_SERVER+"/Document_Tag"
     resp = requests.post(coll_server, json = data_json, headers={'Content-Type': 'application/json'})
     lu.log.debug(resp)
 

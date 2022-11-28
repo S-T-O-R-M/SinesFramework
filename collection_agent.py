@@ -7,11 +7,10 @@ import requests
 import log_util as lu
 import sys
 
-LSERVER = "127.0.0.1"
+LSERVER = "0.0.0.0"
 LPORT = 8081
-cIP = "127.0.0.1"
 
-CENTRAL_SERVER = "127.0.0.1"
+COLL_SERVER = "192.168.182.130"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((LSERVER,LPORT))
@@ -24,13 +23,13 @@ def server_listen():
     s.listen(100)
     conn,addr = s.accept()
 
-    print("Connection Received From:", addr)
+    lu.log.debug("Connection Received From:", addr)
 
     msg = conn.recv(1024).decode("utf-8").strip()
-    print(msg)
-    collectionIP, collectionPort = addr
     
-    if (msg == "COLLECT" and verify_collection(collectionIP)):
+    collectionIP, collectionPort = addr
+    lu.log.debug(msg)
+    if (msg == "COLLECT"):#and verify_collection(collectionIP)):
         lu.log.debug("COLLECT Received. Starting Collection")
         start_collection()
 
@@ -181,7 +180,7 @@ def start_collection():
 # OS Detection
 
 def send_results(forensic_results):
-    results_endpoint = "http://"+CENTRAL_SERVER+":8040/Collection"
+    results_endpoint = "http://"+COLLL_SERVER+":8040/Collection"
     response = requests.post(results_endpoint, json = forensic_results)
 
     print(response)
@@ -195,11 +194,11 @@ def verify_OS():
 
 # Verify Collection Server IP
 
-def verify_collection(collectionIP):
-    if collectionIP == cIP:
-        return 1
-    print ("Collection Server Check Passed")
-    return -1
+# def verify_collection(collectionIP):
+#     if collectionIP == cIP:
+#         return 1
+#     lu.log.debug ("Collection Server Check Passed")
+#     return -1
 
 # Main Mathod
 

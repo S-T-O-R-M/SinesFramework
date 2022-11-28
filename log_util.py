@@ -1,7 +1,11 @@
 import logging as log
-import os.path
+import os
 
-log_files = [".\Logs\central_server_logs.txt",".\Logs\collection_server_logs.txt",".\Logs\\agent_logs.txt"]
+if os.name =="posix":  
+    log_files = ["central_server_logs.txt","collection_server_logs.txt","agent_logs.txt"]
+elif os.name == "nt":
+    log_files = ["central_server_logs.txt","collection_server_logs.txt","agent_logs.txt"]
+
 
 def init(log_file_num):
 
